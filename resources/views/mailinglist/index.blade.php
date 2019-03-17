@@ -66,7 +66,7 @@
                     Mailing Lists for Bitcoin & Bitcoin Core
                 </div>
 
-                <div class="links">
+                <div sclass="links">
                     @foreach ($mailingLists as $list)
                         <a href="/mailing-list/{{ $list->slug }}">{{ $list->name }}</a><br />
                     @endforeach

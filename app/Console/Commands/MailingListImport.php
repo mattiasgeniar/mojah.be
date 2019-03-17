@@ -55,7 +55,7 @@ class MailingListImport extends Command
             // - It's a relatively recent reply to the last message
             // - The subject is similar
 
-            $subject = $mailingListMessage->getSubject();
+            $subject = trim($mailingListMessage->getSubject());
             $email = $mailingListMessage->getFromEmail();
             $emailName = $mailingListMessage->getFromName();
             $date = $mailingListMessage->getDate();

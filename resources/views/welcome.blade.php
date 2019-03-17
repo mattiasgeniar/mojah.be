@@ -20,10 +20,6 @@
                 margin: 0;
             }
 
-            .full-height {
-                height: 80vh;
-            }
-
             .flex-center {
                 align-items: center;
                 display: flex;
