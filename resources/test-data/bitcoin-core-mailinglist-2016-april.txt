@@ -1,0 +1,577 @@
+From laanwj at gmail.com  Fri Apr  8 10:25:21 2016
+From: laanwj at gmail.com (Wladimir J. van der Laan)
+Date: Fri, 8 Apr 2016 12:25:21 +0200
+Subject: [bitcoin-core-dev] First post to this list
+Message-ID: <20160408102521.GA22602@amethyst.visucore.com>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Hello all,
+
+Welcome to the bitcoin-core-dev mailing list.
+
+Firstly, the idea of this list is disussion of Bitcoin Core specific
+implementation concerns. 
+
+This means, for example:
+
+- - Proposals and discussion of e.g. a new wallet API, a P2P code refactor, etc.
+
+- - Questions about how to implement something.
+
+- - Questions about behavior of the code.
+
+- - Discussion about release schedule.
+
+Basically everything that is also acceptable on the #bitcoin-core-dev IRC channel.
+
+But not:
+
+- - Talk or proposals of consensus changes, soft/hard forks (use bitcoin-dev).
+
+- - Changes to the P2P protocol (use bitcoin-dev).
+
+- - Philosophy and economics (use bitcoin-discuss).
+
+- - Issue and bug reports (use github).
+
+Please behave, be civil and respectful, and try to keep things productive
+and moving forward by keeping the amount of repetition to a minimum: if
+something was discussed a month ago don't start a new discussion on the same
+thing.
+
+Kind regards,
+Wladimir van der Laan
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBCgAGBQJXB4bmAAoJEHSBCwEjRsmmKewIAIHh2eUJZmeyUjuFc2v1ktzJ
+k1ngbIZaVZ90m68z27omub+MGNFWr+1Ql18JZdhhHgZnyreqNwyhrXfWmnX9hTDm
+gYT2bkDMcQkSXAGvVWn1oJX/lI3R34STFLAYcMWFU/KXjdcZ13OkoiA46GbT/2Ln
+yIYPZdoRJtzYA1XBGHjuMyGkloeeyrZQbLyygiOAtblNkoUvmUMnd12NmcWKbzR0
+WF7ve5Ha9TcGGo+jtjSt0zxer4q6xo86AU/HGZcr/01/3z+Lc26le8eS6aJBU+Q7
+f/Ear2Zvai2Hpa76EW4rY7LDvXGy33JCxntR+/xhmILPrBvllsjtEB0ZOm8lK90=
+=xKds
+-----END PGP SIGNATURE-----
+
+From laanwj at gmail.com  Mon Apr 11 07:37:06 2016
+From: laanwj at gmail.com (Wladimir J. van der Laan)
+Date: Mon, 11 Apr 2016 09:37:06 +0200
+Subject: [bitcoin-core-dev] Bitcoin Core 0.12.1 release candidate 1 available
+Message-ID: <20160411073706.GA10244@amethyst.visucore.com>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Binaries for bitcoin Core version 0.12.1rc1 are available from:
+
+    https://bitcoin.org/bin/bitcoin-core-0.12.1/test.rc2/
+
+Source code can be found on github under the signed tag
+
+    https://github.com/bitcoin/bitcoin/tree/v0.12.1rc1
+
+This is a release candidate for a new minor version release, including the
+BIP9, BIP68 and BIP112 softfork, various bugfixes and updated translations.
+
+Preliminary release notes for the release can be found here:
+
+    https://github.com/bitcoin/bitcoin/blob/0.12/doc/release-notes.md
+
+Release candidates are test versions for releases. When no critical problems
+are found, this release candidate will be tagged as 0.12.1.
+
+Please report bugs using the issue tracker at github:
+
+    https://github.com/bitcoin/bitcoin/issues
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBCgAGBQJXC1QSAAoJEHSBCwEjRsmmtk4H/1C74eLLVwzOhrrWNx34ANcz
+uiyIlkXnMmX+iHWaSC8XdcBOEc4/+YOgDK0KU+FRG6bNDengPKqf8mPDEvyXU/H+
+/ed2W9Q0DQ/jxyeKOOVlMWhKCZWQRisxhadB0LAiny2QLsBojTrJtziGIOYXp4Qt
+xI3GstbUr42da8kL8NoKxQt6na5FrGiuRAQeucwcoHi1QQodd7R7vA2b84N1ECrr
+KWbCfw6a9qHDmk2Vy+9CqGtESHuVW04B+79ui+Dgsh6frG9UH5G7WP4ziUcwm625
+CEEbi/cIrpzEOSo4S5ukFhYK6I3o67uxvV8Nc3ocI1UmC4d2BUvAMalBGMgjENg=
+=oPfq
+-----END PGP SIGNATURE-----
+
+From laanwj at gmail.com  Mon Apr 11 09:12:13 2016
+From: laanwj at gmail.com (Wladimir J. van der Laan)
+Date: Mon, 11 Apr 2016 11:12:13 +0200
+Subject: [bitcoin-core-dev] Bitcoin Core 0.12.1 release candidate 1
+	available
+In-Reply-To: <20160411073706.GA10244@amethyst.visucore.com>
+References: <20160411073706.GA10244@amethyst.visucore.com>
+Message-ID: <20160411091213.GA10644@amethyst.visucore.com>
+
+That's rc2, not rc1 (thanks btcdrak for noticing).
+rc1 was DOA - see meeting minutes from Thursday.
+Link for the tag:
+
+https://github.com/bitcoin/bitcoin/tree/v0.12.1rc2
+
+The other links and downloads are correct.
+
+Wladimir
+
+On Mon, Apr 11, 2016 at 09:37:06AM +0200, Wladimir J. van der Laan wrote:
+> -----BEGIN PGP SIGNED MESSAGE-----
+> Hash: SHA512
+> 
+> Binaries for bitcoin Core version 0.12.1rc1 are available from:
+> 
+>     https://bitcoin.org/bin/bitcoin-core-0.12.1/test.rc2/
+> 
+> Source code can be found on github under the signed tag
+> 
+>     https://github.com/bitcoin/bitcoin/tree/v0.12.1rc1
+> 
+> This is a release candidate for a new minor version release, including the
+> BIP9, BIP68 and BIP112 softfork, various bugfixes and updated translations.
+> 
+> Preliminary release notes for the release can be found here:
+> 
+>     https://github.com/bitcoin/bitcoin/blob/0.12/doc/release-notes.md
+> 
+> Release candidates are test versions for releases. When no critical problems
+> are found, this release candidate will be tagged as 0.12.1.
+> 
+> Please report bugs using the issue tracker at github:
+> 
+>     https://github.com/bitcoin/bitcoin/issues
+> -----BEGIN PGP SIGNATURE-----
+> Version: GnuPG v1
+> 
+> iQEcBAEBCgAGBQJXC1QSAAoJEHSBCwEjRsmmtk4H/1C74eLLVwzOhrrWNx34ANcz
+> uiyIlkXnMmX+iHWaSC8XdcBOEc4/+YOgDK0KU+FRG6bNDengPKqf8mPDEvyXU/H+
+> /ed2W9Q0DQ/jxyeKOOVlMWhKCZWQRisxhadB0LAiny2QLsBojTrJtziGIOYXp4Qt
+> xI3GstbUr42da8kL8NoKxQt6na5FrGiuRAQeucwcoHi1QQodd7R7vA2b84N1ECrr
+> KWbCfw6a9qHDmk2Vy+9CqGtESHuVW04B+79ui+Dgsh6frG9UH5G7WP4ziUcwm625
+> CEEbi/cIrpzEOSo4S5ukFhYK6I3o67uxvV8Nc3ocI1UmC4d2BUvAMalBGMgjENg=
+> =oPfq
+> -----END PGP SIGNATURE-----
+
+From laanwj at gmail.com  Wed Apr 13 12:51:48 2016
+From: laanwj at gmail.com (Wladimir J. van der Laan)
+Date: Wed, 13 Apr 2016 14:51:48 +0200
+Subject: [bitcoin-core-dev] Announcement Marco Falke
+Message-ID: <20160413125148.GB5900@amethyst.visucore.com>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Hereby I'm announcing Marco Falke as the new Testing & QA maintainer for
+Bitcoin Core.
+
+Testing and QA has always been essential to this project, and with the growing
+pace of development it has become more critical than ever.
+
+Marco has been doing a great job contributing to the project for the last year,
+especially on the test framework and unit tests, increasing coverage, but also
+by sanity-checking the wallet fee functionality and with reviewing other pull
+requests. So it's pretty much what he's been already doing, and it's natural to
+consider him for this.
+
+He's going to oversee and merge pull requests for the QA and Testing framework,
+and keep an eye on the overall quality of testing.
+
+Welcome to the team Marco!
+
+Regards,
+Wladimir van der Laan
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBCgAGBQJXDkAVAAoJEHSBCwEjRsmmSfkIAKHr4lN1Y4G2ftm32dAAqzEp
+hCpYepps5Tg7kE7ki4rFwo8iElKGv243wlsSvA+d8YS7i3f7I9B+3SrNGTf9SxfT
+N2SbxlAwWgaIVgaJ51oonDriVXq/P4B5wWb1kAKHctZbJ2H7UIWJ5csFwXR+laGg
+2fhFfFlWoIGOURwqYGDw2MT508JPTJABwACcgSOt/GEzhKXyXVDGkIWBGIq5SSgn
+ELjBAW18+i3T0Al4oqAB2H9+wbtry8Vp9NO74x9XxKFE7iQ0LIsZi9s2J13a1jto
+xJcmjkFKI7icTr3iTBMZV1Xd3E62x4AOEjWa4ML0/FHQsuejSec1YHuX/HFgQIw=
+=2Z9/
+-----END PGP SIGNATURE-----
+
+From falke.marco at gmail.com  Wed Apr 13 16:11:18 2016
+From: falke.marco at gmail.com (Marco Falke)
+Date: Wed, 13 Apr 2016 18:11:18 +0200
+Subject: [bitcoin-core-dev] Announcement Marco Falke
+Message-ID: <CAKJqnrHZQ809MWFJZajVfjXYLvqF=vTA5j-ENmVutJhjBRsQ_g@mail.gmail.com>
+
+Thank you for the warm welcome!
+
+I have plans to improve the test framework in the coming months (after
+the switch to python3 is done). The plans include increasing overall
+coverage and making the rpc test suite run faster (at least twice as
+fast, hopefully), so patches can be validated quicker and we can spend
+more time on the actual code.
+
+I hope to be better reachable via my IRC handle (identical to my
+GitHub handle) but if there is something I should address in a timely
+manner, it is best to tag me on GitHub or send me an email.
+
+
+Best,
+Marco
+
+From lists at coryfields.com  Wed Apr 13 22:10:47 2016
+From: lists at coryfields.com (Cory Fields)
+Date: Wed, 13 Apr 2016 18:10:47 -0400
+Subject: [bitcoin-core-dev] Announcement Marco Falke
+In-Reply-To: <CAKJqnrHZQ809MWFJZajVfjXYLvqF=vTA5j-ENmVutJhjBRsQ_g@mail.gmail.com>
+References: <CAKJqnrHZQ809MWFJZajVfjXYLvqF=vTA5j-ENmVutJhjBRsQ_g@mail.gmail.com>
+Message-ID: <CAApLimgFduob-DO_V8XReEsQVbvLcYowM2gW054N7h4vh_uUNw@mail.gmail.com>
+
+Welcome aboard :)
+
+On Wed, Apr 13, 2016 at 12:11 PM, Marco Falke via bitcoin-core-dev
+<bitcoin-core-dev at lists.linuxfoundation.org> wrote:
+> Thank you for the warm welcome!
+>
+> I have plans to improve the test framework in the coming months (after
+> the switch to python3 is done). The plans include increasing overall
+> coverage and making the rpc test suite run faster (at least twice as
+> fast, hopefully), so patches can be validated quicker and we can spend
+> more time on the actual code.
+>
+> I hope to be better reachable via my IRC handle (identical to my
+> GitHub handle) but if there is something I should address in a timely
+> manner, it is best to tag me on GitHub or send me an email.
+>
+>
+> Best,
+> Marco
+> _______________________________________________
+> bitcoin-core-dev mailing list
+> bitcoin-core-dev at lists.linuxfoundation.org
+> https://lists.linuxfoundation.org/mailman/listinfo/bitcoin-core-dev
+
+From laanwj at gmail.com  Fri Apr 15 08:40:09 2016
+From: laanwj at gmail.com (Wladimir J. van der Laan)
+Date: Fri, 15 Apr 2016 10:40:09 +0200
+Subject: [bitcoin-core-dev] Bitcoin Core 0.12.1 released
+Message-ID: <20160415084009.GA13261@amethyst.visucore.com>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Bitcoin Core version 0.12.1 is now available from:
+
+  <https://bitcoin.org/bin/bitcoin-core-0.12.1/>
+
+Or through bittorrent:
+
+  magnet:?xt=urn:btih:25c4df2a822e840e972a50a31095632d87efadab&dn=bitcoin-core-0.12.1&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.ccc.de%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&ws=https%3A%2F%2Fbitcoin.org%2Fbin%2F 
+
+This is a new minor version release, including the BIP9, BIP68 and BIP112
+softfork, various bugfixes and updated translations.
+
+Please report bugs using the issue tracker at github:
+
+  <https://github.com/bitcoin/bitcoin/issues>
+
+Upgrading and downgrading
+=========================
+
+How to Upgrade
+- --------------
+
+If you are running an older version, shut it down. Wait until it has completely
+shut down (which might take a few minutes for older versions), then run the
+installer (on Windows) or just copy over /Applications/Bitcoin-Qt (on Mac) or
+bitcoind/bitcoin-qt (on Linux).
+
+Downgrade warning
+- -----------------
+
+### Downgrade to a version < 0.12.0
+
+Because release 0.12.0 and later will obfuscate the chainstate on every
+fresh sync or reindex, the chainstate is not backwards-compatible with
+pre-0.12 versions of Bitcoin Core or other software.
+
+If you want to downgrade after you have done a reindex with 0.12.0 or later,
+you will need to reindex when you first start Bitcoin Core version 0.11 or
+earlier.
+
+Notable changes
+===============
+
+First version bits BIP9 softfork deployment
+- -------------------------------------------
+
+This release includes a soft fork deployment to enforce [BIP68][],
+[BIP112][] and [BIP113][] using the [BIP9][] deployment mechanism.
+
+The deployment sets the block version number to 0x20000001 between
+midnight 1st May 2016 and midnight 1st May 2017 to signal readiness for 
+deployment. The version number consists of 0x20000000 to indicate version
+bits together with setting bit 0 to indicate support for this combined
+deployment, shown as "csv" in the `getblockchaininfo` RPC call.
+
+For more information about the soft forking change, please see
+<https://github.com/bitcoin/bitcoin/pull/7648>
+
+This specific backport pull-request can be viewed at
+<https://github.com/bitcoin/bitcoin/pull/7543>
+
+[BIP9]: https://github.com/bitcoin/bips/blob/master/bip-0009.mediawiki
+[BIP68]: https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki
+[BIP112]: https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki
+[BIP113]: https://github.com/bitcoin/bips/blob/master/bip-0113.mediawiki
+
+BIP68 soft fork to enforce sequence locks for relative locktime
+- ---------------------------------------------------------------
+
+[BIP68][] introduces relative lock-time consensus-enforced semantics of
+the sequence number field to enable a signed transaction input to remain
+invalid for a defined period of time after confirmation of its corresponding
+outpoint.
+
+For more information about the implementation, see
+<https://github.com/bitcoin/bitcoin/pull/7184>
+
+BIP112 soft fork to enforce OP_CHECKSEQUENCEVERIFY
+- --------------------------------------------------
+
+[BIP112][] redefines the existing OP_NOP3 as OP_CHECKSEQUENCEVERIFY (CSV)
+for a new opcode in the Bitcoin scripting system that in combination with
+[BIP68][] allows execution pathways of a script to be restricted based
+on the age of the output being spent.
+
+For more information about the implementation, see
+<https://github.com/bitcoin/bitcoin/pull/7524>
+
+BIP113 locktime enforcement soft fork
+- -------------------------------------
+
+Bitcoin Core 0.11.2 previously introduced mempool-only locktime
+enforcement using GetMedianTimePast(). This release seeks to
+consensus enforce the rule.
+
+Bitcoin transactions currently may specify a locktime indicating when
+they may be added to a valid block.  Current consensus rules require
+that blocks have a block header time greater than the locktime specified
+in any transaction in that block.
+
+Miners get to choose what time they use for their header time, with the
+consensus rule being that no node will accept a block whose time is more
+than two hours in the future.  This creates a incentive for miners to
+set their header times to future values in order to include locktimed
+transactions which weren't supposed to be included for up to two more
+hours.
+
+The consensus rules also specify that valid blocks may have a header
+time greater than that of the median of the 11 previous blocks.  This
+GetMedianTimePast() time has a key feature we generally associate with
+time: it can't go backwards.
+
+[BIP113][] specifies a soft fork enforced in this release that
+weakens this perverse incentive for individual miners to use a future
+time by requiring that valid blocks have a computed GetMedianTimePast()
+greater than the locktime specified in any transaction in that block.
+
+Mempool inclusion rules currently require transactions to be valid for
+immediate inclusion in a block in order to be accepted into the mempool.
+This release begins applying the BIP113 rule to received transactions,
+so transaction whose time is greater than the GetMedianTimePast() will
+no longer be accepted into the mempool.
+
+**Implication for miners:** you will begin rejecting transactions that
+would not be valid under BIP113, which will prevent you from producing
+invalid blocks when BIP113 is enforced on the network. Any
+transactions which are valid under the current rules but not yet valid
+under the BIP113 rules will either be mined by other miners or delayed
+until they are valid under BIP113. Note, however, that time-based
+locktime transactions are more or less unseen on the network currently.
+
+**Implication for users:** GetMedianTimePast() always trails behind the
+current time, so a transaction locktime set to the present time will be
+rejected by nodes running this release until the median time moves
+forward. To compensate, subtract one hour (3,600 seconds) from your
+locktimes to allow those transactions to be included in mempools at
+approximately the expected time.
+
+For more information about the implementation, see
+<https://github.com/bitcoin/bitcoin/pull/6566>
+
+Miscellaneous
+- -------------
+
+The p2p alert system is off by default. To turn on, use `-alert` with
+startup configuration.
+
+0.12.1 Change log
+=================
+
+Detailed release notes follow. This overview includes changes that affect
+behavior, not code moves, refactors and string updates. For convenience in locating
+the code changes and accompanying discussion, both the pull request and
+git merge commit are mentioned.
+
+### RPC and other APIs
+- - #7739 `7ffc2bd` Add abandoned status to listtransactions (jonasschnelli)
+
+### Block and transaction handling
+- - #7543 `834aaef` Backport BIP9, BIP68 and BIP112 with softfork (btcdrak)
+
+### P2P protocol and network code
+- - #7804 `90f1d24` Track block download times per individual block (sipa)
+- - #7832 `4c3a00d` Reduce block timeout to 10 minutes (laanwj)
+
+### Validation
+- - #7821 `4226aac` init: allow shutdown during 'Activating best chain...' (laanwj)
+- - #7835 `46898e7` Version 2 transactions remain non-standard until CSV activates (sdaftuar)
+
+### Build system
+- - #7487 `00d57b4` Workaround Travis-side CI issues (luke-jr)
+- - #7606 `a10da9a` No need to set -L and --location for curl (MarcoFalke)
+- - #7614 `ca8f160` Add curl to packages (now needed for depends) (luke-jr)
+- - #7776 `a784675` Remove unnecessary executables from gitian release (laanwj)
+
+### Wallet
+- - #7715 `19866c1` Fix calculation of balances and available coins. (morcos)
+
+### Miscellaneous
+- - #7617 `f04f4fd` Fix markdown syntax and line terminate LogPrint (MarcoFalke)
+- - #7747 `4d035bc` added depends cross compile info (accraze)
+- - #7741 `a0cea89` Mark p2p alert system as deprecated (btcdrak)
+- - #7780 `c5f94f6` Disable bad-chain alert (btcdrak)
+
+Credits
+=======
+
+Thanks to everyone who directly contributed to this release:
+
+- - accraze
+- - Alex Morcos
+- - BtcDrak
+- - Jonas Schnelli
+- - Luke Dashjr
+- - MarcoFalke
+- - Mark Friedenbach
+- - NicolasDorier
+- - Pieter Wuille
+- - Suhas Daftuar
+- - Wladimir J. van der Laan
+
+As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/bitcoin/).
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBCgAGBQJXEKiiAAoJEHSBCwEjRsmm0VEIAJFRCFuICFuNewrDG09pzf4O
+96ppgZp7sUcvNb1x8On127YJSkuH3RvuQCKIqLoWC1iifbqpgyn6X973jHQtEkwZ
+eSznRO1Um8qj6Ovq6ia/HxXO2mPp49dYQtb3/HcQoV/wh4Ogi29r7S7DwzoBkMJX
+PFP5LpLD+ds9rFteiqF12ZpzGic8OwKvDEiwq9zTjDBzSxgxKjaUMxY/tDTeB1a6
+wlP7X2TK51JVIFdcrDl1KCIO2TS8n+dWsm6JH0sjqHUhiY6hTT2L66UN4JreRwcD
+5Je8OxyI4b5wL9hsTRCaSSod1C12XOxfYSNPGnQkqhizeijRvB+YlDXWGkst/PE=
+=BmpS
+-----END PGP SIGNATURE-----
+
+From laanwj at gmail.com  Fri Apr 15 12:14:52 2016
+From: laanwj at gmail.com (Wladimir J. van der Laan)
+Date: Fri, 15 Apr 2016 14:14:52 +0200
+Subject: [bitcoin-core-dev] 0.13 release schedule moved forward by a month
+Message-ID: <20160415121452.GA17078@amethyst.visucore.com>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+
+According to the meeting discussion on 2016-04-14 I've moved all the dates forward by one month.
+See https://github.com/bitcoin/bitcoin/issues/7679
+
+2016-06-01
+- -----------
+- - Open Transifex translations for 0.13
+- - Soft translation string freeze (no large or unnecessary string changes until release)
+- - Finalize and close translations for 0.11
+
+2016-06-15
+- -----------
+- - Feature freeze (bug fixes only until release)
+- - Translation string freeze (no more source language changes until release)
+
+2016-07-06
+- -----------
+- - Split off `0.13` branch from `master`
+- - Start RC cycle, tag and release `0.13.0rc1`
+- - Start merging for 0.14 on master branch
+
+2016-08-01
+- -----------
+- - Release 0.13.0 final (aim)
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBCgAGBQJXENp8AAoJEHSBCwEjRsmmTzwIAJvyqDl1TV62Tg1zffCXzdTA
+eCJaIcfdDtZ7MPvwkPWB4Jy2VGyqCWhzFtRlQMer0aLBfUwskOlJMBA3iqpyN71u
+p2HWHXCbdBHVXxY5vilYF6OHnJDvNaAjK6am/KHqwUven643VxFrFUd+lfx7LNyx
+/Je0RDVzcYDLXcgl3nSfl6kqlfG0jV7QFTUvpCEzuE6+LqQDbzbhOsSWZeGw3nYc
+cJ5VppKIx9BrKNhq6Zv7X5SzNTuwrBC2xSRwayMYH/1POHEbQbL7ldrMsAm02MD/
+Z9YnLOq6R982hJzAf2VA3mOLd8sKJH2Mg/TwBS42P4mNcPNDd1f1wUU2r9YsUNw=
+=6FXE
+-----END PGP SIGNATURE-----
+
+From lf-lists at mattcorallo.com  Fri Apr 15 20:38:56 2016
+From: lf-lists at mattcorallo.com (Matt Corallo)
+Date: Fri, 15 Apr 2016 20:38:56 +0000
+Subject: [bitcoin-core-dev] 0.13 release schedule moved forward by a
+	month
+In-Reply-To: <20160415121452.GA17078@amethyst.visucore.com>
+References: <20160415121452.GA17078@amethyst.visucore.com>
+Message-ID: <E97D902F-16E0-4888-80FE-1EF5F2C244CB@mattcorallo.com>
+
+Note that, per policy, soft forks continue to be independent of major releases.
+
+On April 15, 2016 5:14:52 AM PDT, "Wladimir J. van der Laan via bitcoin-core-dev" <bitcoin-core-dev at lists.linuxfoundation.org> wrote:
+>-----BEGIN PGP SIGNED MESSAGE-----
+>Hash: SHA512
+>
+>
+>According to the meeting discussion on 2016-04-14 I've moved all the
+>dates forward by one month.
+>See https://github.com/bitcoin/bitcoin/issues/7679
+>
+>2016-06-01
+>- -----------
+>- - Open Transifex translations for 0.13
+>- - Soft translation string freeze (no large or unnecessary string
+>changes until release)
+>- - Finalize and close translations for 0.11
+>
+>2016-06-15
+>- -----------
+>- - Feature freeze (bug fixes only until release)
+>- - Translation string freeze (no more source language changes until
+>release)
+>
+>2016-07-06
+>- -----------
+>- - Split off `0.13` branch from `master`
+>- - Start RC cycle, tag and release `0.13.0rc1`
+>- - Start merging for 0.14 on master branch
+>
+>2016-08-01
+>- -----------
+>- - Release 0.13.0 final (aim)
+>
+>-----BEGIN PGP SIGNATURE-----
+>Version: GnuPG v1
+>
+>iQEcBAEBCgAGBQJXENp8AAoJEHSBCwEjRsmmTzwIAJvyqDl1TV62Tg1zffCXzdTA
+>eCJaIcfdDtZ7MPvwkPWB4Jy2VGyqCWhzFtRlQMer0aLBfUwskOlJMBA3iqpyN71u
+>p2HWHXCbdBHVXxY5vilYF6OHnJDvNaAjK6am/KHqwUven643VxFrFUd+lfx7LNyx
+>/Je0RDVzcYDLXcgl3nSfl6kqlfG0jV7QFTUvpCEzuE6+LqQDbzbhOsSWZeGw3nYc
+>cJ5VppKIx9BrKNhq6Zv7X5SzNTuwrBC2xSRwayMYH/1POHEbQbL7ldrMsAm02MD/
+>Z9YnLOq6R982hJzAf2VA3mOLd8sKJH2Mg/TwBS42P4mNcPNDd1f1wUU2r9YsUNw=
+>=6FXE
+>-----END PGP SIGNATURE-----
+>_______________________________________________
+>bitcoin-core-dev mailing list
+>bitcoin-core-dev at lists.linuxfoundation.org
+>https://lists.linuxfoundation.org/mailman/listinfo/bitcoin-core-dev
+
+
