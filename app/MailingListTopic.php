@@ -12,4 +12,9 @@ class MailingListTopic extends Model
     {
         return $this->hasMany('App\MailingListMessage');
     }
+
+    public function author()
+    {
+        return $this->belongsTo('App\MailingListAuthor', 'mailing_list_author_id');
+    }
 }

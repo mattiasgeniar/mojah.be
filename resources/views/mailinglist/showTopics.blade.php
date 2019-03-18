@@ -10,60 +10,18 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        <link rel="stylesheet" href="/css/custom.css" />
     </head>
     <body>
         <div class="flex-center position-ref">
-            <div>
+            <div class="content">
                 <div class="title m-b-md">
                     {{ $mailingList->name }}
                 </div>
 
                 <div class="links">
-                    @foreach ($mailingList->topics as $topic)
-                        <a href="/mailing-list/{{ $mailingList->slug }}/{{ $topic->id }}">{{ $topic->topic }}</a><br />
+                    @foreach ($mailingList->topics->sortBy('created_at') as $topic)
+                        <a href="/mailing-list/{{ $mailingList->slug }}/{{ $topic->id }}">{{ $topic->topic }}</a> ({{ $topic->created_at }} by {{ $topic->author->display_name }})<br />
                     @endforeach
                 </div>
             </div>

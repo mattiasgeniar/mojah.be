@@ -40,8 +40,8 @@ class MailingListImport extends Command
 
         $mailingList = MailingListList::where(['slug' => $listName])->firstOrFail();
 
-        if (!$mailingList) {
-            dd('First add this mailing list to the DB');
+        if (! $mailingList) {
+            dd('First add this mailing list to the DB: '. $listName);
         }
 
         for ($n = 0; $n < $list->size(); $n++) {
@@ -56,6 +56,8 @@ class MailingListImport extends Command
             // - The subject is similar
 
             $subject = trim($mailingListMessage->getSubject());
+            $subject = preg_replace('/\[[a-zA-Z0-9-]+\] /', '', $subject);
+
             $email = $mailingListMessage->getFromEmail();
             $emailName = $mailingListMessage->getFromName();
             $date = $mailingListMessage->getDate();
@@ -63,15 +65,21 @@ class MailingListImport extends Command
 
             $messageHash = md5($date . $email . $body);
 
-            $mailingListAuthor = mailingListAuthor::firstOrCreate(
-                [
-                    'email' => $email,
-                ],
-                [
-                    'email' => $email,
-                    'display_name' => $emailName,
-                ]
-            );
+            if ($email && $emailName) {
+                $mailingListAuthor = mailingListAuthor::firstOrCreate(
+                    [
+                        'email' => $email,
+                    ],
+                    [
+                        'email' => $email,
+                        'display_name' => $emailName,
+                    ]
+                );
+
+                $mailingListAuthorId = $mailingListAuthor->id;
+            } else {
+                $mailingListAuthorId = null;
+            }
 
             $mailingListTopic = MailingListTopic::firstOrCreate(
                 [
@@ -80,7 +88,7 @@ class MailingListImport extends Command
                 [
                     'mailing_list_list_id' => $mailingList->id,
                     'topic' => $subject,
-                    'mailing_list_author_id' => $mailingListAuthor->id,
+                    'mailing_list_author_id' => $mailingListAuthorId,
                 ]
             );
 
@@ -90,7 +98,7 @@ class MailingListImport extends Command
                 ],
                 [
                     'mailing_list_topic_id' => $mailingListTopic->id,
-                    'mailing_list_author_id' => $mailingListAuthor->id,
+                    'mailing_list_author_id' => $mailingListAuthorId,
                     'hash' => $messageHash,
                     'raw' => $message,
                     'content' => $body,

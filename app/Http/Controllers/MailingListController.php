@@ -13,7 +13,7 @@ class MailingListController extends Controller
         return view(
             'mailinglist.index',
             [
-                'mailingLists' => MailingListList::all()
+                'mailingLists' => MailingListList::all()->sortBy('slug')
             ]
         );
     }

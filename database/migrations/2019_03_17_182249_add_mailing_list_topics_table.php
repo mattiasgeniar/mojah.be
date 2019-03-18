@@ -17,7 +17,7 @@ class AddMailinglistTopicsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('mailing_list_list_id');
             $table->string('topic');
-            $table->bigInteger('mailing_list_author_id');
+            $table->bigInteger('mailing_list_author_id')->nullable();
             $table->timestamps();
         });
     }

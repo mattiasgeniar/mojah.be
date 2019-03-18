@@ -28,7 +28,7 @@ class MailingListMessage extends Model
 
     public function getFromName()
     {
-        return $this->parse()->getHeader('from')->getPersonName();
+        return $this->parse()->getHeader('from') ? $this->parse()->getHeader('from')->getPersonName() : '';
     }
 
     public function getSubject()
@@ -50,6 +50,6 @@ class MailingListMessage extends Model
 
     public function author()
     {
-        return $this->hasOne('App\MailingListAuthor');
+        return $this->belongsTo('App\MailingListAuthor', 'mailing_list_author_id');
     }
 }
