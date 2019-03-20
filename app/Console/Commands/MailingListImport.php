@@ -8,6 +8,7 @@ use App\MailingListMessage;
 use App\MailingListTopic;
 use App\MailingListAuthor;
 use App\MailingListList;
+use Carbon\Carbon;
 
 class MailingListImport extends Command
 {
@@ -62,8 +63,7 @@ class MailingListImport extends Command
 
             $email = $mailingListMessage->getFromEmail();
             $emailName = $mailingListMessage->getFromName();
-            $date = $mailingListMessage->getDate();
-            dd($date);
+            $date = Carbon::parse($mailingListMessage->getDate());
             $body = $mailingListMessage->getBodyText();
 
             $messageHash = md5($date . $email . $body);
@@ -94,6 +94,7 @@ class MailingListImport extends Command
                     'mailing_list_list_id' => $mailingList->id,
                     'topic' => $subject,
                     'mailing_list_author_id' => $mailingListAuthorId,
+                    'created_at' => $date,
                 ]
             );
 
@@ -107,6 +108,7 @@ class MailingListImport extends Command
                     'hash' => $messageHash,
                     'raw' => $message,
                     'content' => $body,
+                    'created_at' => $date,
                 ]
             );
         }

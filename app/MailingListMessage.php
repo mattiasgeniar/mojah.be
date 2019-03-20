@@ -7,7 +7,7 @@ use ZBateson\MailMimeParser\MailMimeParser;
 
 class MailingListMessage extends Model
 {
-    protected $fillable = ['mailing_list_topic_id', 'mailing_list_author_id', 'hash', 'raw', 'content'];
+    protected $fillable = ['mailing_list_topic_id', 'mailing_list_author_id', 'hash', 'raw', 'content', 'created_at'];
 
     private $message = null;
 

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class MailingListTopic extends Model
 {
-    protected $fillable = ['topic', 'date', 'thread_id', 'mailing_list_list_id', 'mailing_list_author_id'];
+    protected $fillable = ['topic', 'date', 'thread_id', 'mailing_list_list_id', 'mailing_list_author_id', 'created_at'];
 
     public function messages()
     {
