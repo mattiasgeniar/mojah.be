@@ -23,12 +23,39 @@ class MailingListMessage extends Model
 
     public function getFromEmail()
     {
-        return $this->parse()->getHeaderValue('from');
+        $email = $this->parse()->getHeaderValue('from');
+
+        return preg_replace('/at/', '@', $email, 1);
     }
 
     public function getFromName()
     {
-        return $this->parse()->getHeader('from') ? $this->parse()->getHeader('from')->getPersonName() : '';
+        // The getPersonName() method from the mime-parser does not correctly parse names
+        // User our own parser instead
+        if (! $this->parse()->getHeader('from')) {
+            return 'Anonymous';
+        }
+
+        if (! $rawHeader = $this->parse()->getHeader('from')->getRawValue()) {
+            return 'Anonymous';
+        }
+
+        $matches = [];
+        preg_match('/\(.*\)/', $rawHeader, $matches);
+
+        if (is_array($matches) && array_key_exists(0, $matches)) {
+            // Strip the surrounding brackets from the (Name)
+            $name = substr(substr($matches[0], 0, strlen($matches[0]) -1), 1);
+
+            if (function_exists('imap_mime_header_decode')) {
+                $parsed = imap_mime_header_decode($name);
+                return utf8_encode($parsed[0]->text);
+            } else {
+                return $name;
+            }
+        }
+
+        return 'Anonymous';
     }
 
     public function getSubject()

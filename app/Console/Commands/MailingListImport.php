@@ -65,7 +65,7 @@ class MailingListImport extends Command
 
             $messageHash = md5($date . $email . $body);
 
-            if ($email && $emailName) {
+            if ($email) {
                 $mailingListAuthor = mailingListAuthor::firstOrCreate(
                     [
                         'email' => $email,
@@ -78,7 +78,9 @@ class MailingListImport extends Command
 
                 $mailingListAuthorId = $mailingListAuthor->id;
             } else {
-                $mailingListAuthorId = null;
+                // Somehow couldn't parse author, skip this message
+                // Might lead to missed emails, but going for speed over complexity for now
+                continue;
             }
 
             $mailingListTopic = MailingListTopic::firstOrCreate(
