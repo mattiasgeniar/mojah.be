@@ -4,25 +4,31 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Community Bitcoin</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <title>Community resources for Bitcoin Core</title>
 
         <!-- Styles -->
-        <link rel="stylesheet" href="/css/custom.css" />
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
     </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div class="title m-b-md">
-                    Community resources for Bitcoin
-                </div>
 
-                <div class="links">
-                    <a href="/mailing-list">Mailing List</a>
+    <body>
+        <div class="font-sans">
+            <!-- title -->
+            <div class="bg-white max-w-xl mx-auto my-8">
+                <h2 class="font-medium text-2lg ml-24 mb-2 mx-auto">Community resources for Bitcoin Core</h2>
+            </div>
+
+            <div class="bg-white max-w-xl mx-auto">
+                <div class="flex pt-1 px-4">
+                    <div class="px-2 pt-2 inline-flex">
+                        <div class="flex-4">
+                            <a href="/mailing-list" class="text-black no-underline">
+                                - <span class="font-medium">Mailing List archives</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </body>
 </html>
+
