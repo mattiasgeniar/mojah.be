@@ -56,11 +56,14 @@ class MailingListImport extends Command
             // - The subject is similar
 
             $subject = trim($mailingListMessage->getSubject());
+
+            // Remove the [bitcoin-dev] prefix from the subject
             $subject = preg_replace('/\[[a-zA-Z0-9-]+\] /', '', $subject);
 
             $email = $mailingListMessage->getFromEmail();
             $emailName = $mailingListMessage->getFromName();
             $date = $mailingListMessage->getDate();
+            dd($date);
             $body = $mailingListMessage->getBodyText();
 
             $messageHash = md5($date . $email . $body);
