@@ -2,7 +2,7 @@
 
 ## View online
 
-A demo version is available here: [bitcoin.mojah.be](http://bitcoin.mojah.be/).
+A demo version is available here: [mojah.be](https://mojah.be/).
 
 ## General
 
