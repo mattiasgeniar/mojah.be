@@ -22,7 +22,8 @@
                 <div class="links">
                     @foreach ($topic->messages as $message)
                         <img src="{{ $message->author->getGravatarAttribute() }}" />
-                        From: {{ $message->author->display_name }}
+                        From: {{ $message->author->display_name }}<br />
+                        Date: {{ $message->created_at }}<br />
 
                         <pre>
 {{ $message->content }}
