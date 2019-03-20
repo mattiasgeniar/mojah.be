@@ -18,7 +18,7 @@ class AddMailinglistMessagesTable extends Migration
             $table->bigInteger('mailing_list_topic_id');
             $table->bigInteger('mailing_list_author_id')->nullable();
             $table->string('hash'); /* uniquely identify a message */
-            $table->text('raw');    /* Full MIME message, including headers */
+            $table->text('raw')->nullable();    /* Full MIME message, including headers */
             $table->text('content');
             $table->timestamps();
         });

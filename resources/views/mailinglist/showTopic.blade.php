@@ -25,7 +25,7 @@
                         <img class="p-2 rounded rounded-full" src="{{ $message->author->getGravatarAttribute() }}">
                     </div>
 
-                    <div class="px-2 pt-2 flex-grow">
+                    <div class="px-2 pt-2 flex-grow w-full">
                         <header>
                             <a href="/mailing-list/author/{{ $message->author->id }}" class="text-black no-underline">
                                 <span class="font-medium">{{ $message->author->display_name }}</span>
@@ -45,7 +45,7 @@
 
                         </header>
 
-                        <article class="py-4 text-grey-darkest">
+                        <article class="py-4 text-grey-darkest break-words flex-wrap">
                             {!! getMessageBody(e($message->content)) !!}
                         </article>
 

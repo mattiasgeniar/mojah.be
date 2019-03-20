@@ -20,10 +20,14 @@ class MailingListController extends Controller
 
     public function showTopics($slug)
     {
+        $mailingList = MailingListList::where(['slug' => $slug])->firstOrFail();
+        $topics = $mailingList->topics()->orderBy('created_at', 'desc')->get();
+
         return view(
             'mailinglist.showTopics',
             [
-                'mailingList' => MailingListList::where(['slug' => $slug])->firstOrFail()
+                'mailingList' => $mailingList,
+                'topics' => $topics,
             ]
         );
     }

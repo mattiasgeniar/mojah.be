@@ -11,6 +11,9 @@ function getMessageBody($body)
     // Make URLs clickable
     $body = preg_replace('!(((f|ht)tp(s)?://)[-a-zA-Zа-яА-Я()0-9@:%_+.~#?&;//=]+)!i', '<a href="$1">$1</a>', $body);
 
+    // Encapsulate strings in backtics in <code> tags
+    $body = preg_replace("/`(.*?)`/s", '<code class="bg-grey-lighter pl-1 pr-1 leading-tight text-red-dark rounded-sm font-mono text-sm">$1</code>', $body);
+
     // Set the quoted text in italic/grey
     $body = setMarkupQuotedText($body);
 

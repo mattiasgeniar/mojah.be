@@ -106,7 +106,6 @@ class MailingListImport extends Command
                     'mailing_list_topic_id' => $mailingListTopic->id,
                     'mailing_list_author_id' => $mailingListAuthorId,
                     'hash' => $messageHash,
-                    'raw' => $message,
                     'content' => $body,
                     'created_at' => $date,
                 ]
