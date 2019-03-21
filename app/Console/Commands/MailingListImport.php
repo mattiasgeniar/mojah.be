@@ -98,6 +98,10 @@ class MailingListImport extends Command
                 ]
             );
 
+            // Update the mailinglist's "last updated at" timestamp
+            $mailingList->updated_at = $mailingListTopic->created_at;
+            $mailingList->save();
+
             $mailingListMessage = MailingListMessage::firstOrCreate(
                 [
                     'hash' => $messageHash,
@@ -110,6 +114,10 @@ class MailingListImport extends Command
                     'created_at' => $date,
                 ]
             );
+
+            // Update the topic's "last updated at" timestamp
+            $mailingListTopic->updated_at = $mailingListMessage->created_at;
+            $mailingListTopic->save();
         }
 
         $list->close();
