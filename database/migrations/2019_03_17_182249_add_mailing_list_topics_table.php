@@ -16,8 +16,8 @@ class AddMailinglistTopicsTable extends Migration
         Schema::create('mailing_list_topics', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('mailing_list_list_id');
-            $table->string('topic');
             $table->bigInteger('mailing_list_author_id')->nullable();
+            $table->string('topic');
             $table->timestamps();
         });
     }
