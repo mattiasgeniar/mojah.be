@@ -28,4 +28,9 @@ class MailingListAuthor extends Model
     {
         return strlen($value) > 0 ? $value : 'Anonymous';
     }
+
+    public function getAuthorUrl()
+    {
+        return '/mailing-list/author/'. $this->id;
+    }
 }

@@ -10,4 +10,9 @@ class MailingListList extends Model
     {
         return $this->hasMany('App\MailingListTopic');
     }
+
+    public function getListUrl()
+    {
+        return '/mailing-list/'. $this->slug;
+    }
 }

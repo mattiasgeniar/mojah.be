@@ -11,6 +11,11 @@ class MailingListMessage extends Model
 
     private $message = null;
 
+    public function topic()
+    {
+        return $this->belongsTo('App\MailingListTopic', 'mailing_list_topic_id');
+    }
+
     public function setRawMessage($message)
     {
         $this->message = $message;
@@ -78,5 +83,15 @@ class MailingListMessage extends Model
     public function author()
     {
         return $this->belongsTo('App\MailingListAuthor', 'mailing_list_author_id');
+    }
+
+    public function getMessageUrl()
+    {
+        return $this->topic->getTopicUrl() .'#'. $this->id;
+    }
+
+    public function getMessageTeaser($limit = 85)
+    {
+        return strlen($this->content) > $limit ? substr($this->content, 0, $limit) . "..." : $this->content;
     }
 }

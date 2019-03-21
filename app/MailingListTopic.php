@@ -17,4 +17,14 @@ class MailingListTopic extends Model
     {
         return $this->belongsTo('App\MailingListAuthor', 'mailing_list_author_id');
     }
+
+    public function list()
+    {
+        return $this->belongsTo('App\MailingListList', 'mailing_list_list_id');
+    }
+
+    public function getTopicUrl()
+    {
+        return '/mailing-list/'. $this->list->slug .'/'. $this->id;
+    }
 }
