@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\MailingListList;
 use App\MailingListTopic;
+use App\MailingListAuthor;
 
 class MailingListController extends Controller
 {
@@ -39,6 +40,18 @@ class MailingListController extends Controller
             [
                 'mailingList' => MailingListList::where(['slug' => $slug])->firstOrFail(),
                 'topic' => MailingListTopic::findOrFail($topic),
+            ]
+        );
+    }
+
+    public function showAuthor($id)
+    {
+        $author = MailingListAuthor::where(['id' => $id])->firstOrFail();
+
+        return view(
+            'mailinglist.showAuthor',
+            [
+                'author' => $author,
             ]
         );
     }

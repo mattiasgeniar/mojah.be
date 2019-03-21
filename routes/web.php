@@ -16,5 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('mailing-list', 'MailingListController@index');
+Route::get('mailing-list/author/{id}', 'MailingListController@showAuthor');
 Route::get('mailing-list/{slug}', 'MailingListController@showTopics');
 Route::get('mailing-list/{slug}/{topic}', 'MailingListController@showTopic');
