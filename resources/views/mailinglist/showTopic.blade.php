@@ -15,10 +15,14 @@
             <!-- title -->
             <div class="bg-white max-w-xl mx-auto my-8">
                 <h2 class="font-medium text-2lg ml-24 mb-2 mx-auto">{{ $mailingList->name }}: {{ $topic->topic }}</h2>
+                <a href="{{ $mailingList->getListUrl() }}" class="no-underline text-grey">
+                    <span class="text-grey">&laquo; Back</span>
+                </a>
             </div>
 
             @foreach ($topic->messages as $message)
             <!-- mail message -->
+            <a name="{{ $message->id }}"></a>
             <div class="bg-white max-w-xl mx-auto my-8 border border-grey-light">
                 <div class="flex pt-4 px-4">
                     <div class="w-16 mr-2">
@@ -27,7 +31,7 @@
 
                     <div class="px-2 pt-2 flex-grow w-full">
                         <header>
-                            <a href="/mailing-list/author/{{ $message->author->id }}" class="text-black no-underline">
+                            <a href="{{ $message->author->getAuthorUrl() }}" class="text-black no-underline">
                                 <span class="font-medium">{{ $message->author->display_name }}</span>
                             </a>
 
@@ -40,12 +44,12 @@
                                 <line x1="8" y1="2" x2="8" y2="6"></line>
                                 <line x1="3" y1="10" x2="21" y2="10"></line>
                                 </svg>
-                                <span title="{{ $message->created_at }}">{{ $message->created_at->ago() }}</span>
+                                <span>{{ $message->created_at }} ({{ $message->created_at->ago() }})</span>
                             </div>
 
                         </header>
 
-                        <article class="py-4 text-grey-darkest break-words flex-wrap">
+                        <article class="py-4 text-grey-darkest break-words flex-wrap leading-normal text-lg">
                             {!! getMessageBody(e($message->content)) !!}
                         </article>
 

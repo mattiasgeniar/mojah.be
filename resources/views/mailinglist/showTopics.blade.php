@@ -23,7 +23,7 @@
                 <div class="flex pt-1 px-4">
                     <div class="px-2 pt-2 inline-flex">
                         <div class="flex-4">
-                            <a href="/mailing-list/{{ $mailingList->slug }}/{{ $topic->id }}" class="text-black no-underline">
+                            <a href="{{ $topic->getTopicUrl() }}" class="text-black no-underline">
                                 <span class="font-medium">{{ $topic->topic }}</span>
                             </a>
                         </div>
