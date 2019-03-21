@@ -86,17 +86,21 @@ class MailingListImport extends Command
                 continue;
             }
 
-            $mailingListTopic = MailingListTopic::firstOrCreate(
-                [
-                    'topic' => $subject
-                ],
-                [
-                    'mailing_list_list_id' => $mailingList->id,
-                    'topic' => $subject,
-                    'mailing_list_author_id' => $mailingListAuthorId,
-                    'created_at' => $date,
-                ]
-            );
+            // Subject matching: find the topic that has the same subject and was updated
+            // at most 1 month ago. If it's older, assume it's a new topic and create a new one.
+            $topicDateMin = $date->copy()->subDays(30);
+            $topicDateMax = $date->copy()->addDays(30);
+            $mailingListTopic = MailingListTopic::where('topic', $subject)
+                                    ->whereBetween('updated_at', [$topicDateMin, $topicDateMax])->first();
+
+            if (! $mailingListTopic) {
+                $mailingListTopic = new MailingListTopic();
+                $mailingListTopic->mailing_list_list_id = $mailingList->id;
+                $mailingListTopic->topic = $subject;
+                $mailingListTopic->mailing_list_author_id = $mailingListAuthorId;
+                $mailingListTopic->created_at = $date;
+                $mailingListTopic->save();
+            }
 
             // Update the mailinglist's "last updated at" timestamp
             $mailingList->updated_at = $mailingListTopic->created_at;
