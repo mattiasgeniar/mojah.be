@@ -28,13 +28,67 @@ class MailingListMessage extends Model
 
     public function getFromEmail()
     {
-        $email = $this->parse()->getHeaderValue('from');
+        // 2 ways to get the e-mail: if there's a Reply-To header, use that
+        if ($replyTo = $this->getReplyToRaw()) {
+            // The Reply-To has 2 potential flavors:
+            // - Reply-To: user@domain.com
+            // - Reply-To: John Doe <user@domain.com>
+
+            // Match the 1st case
+            if (filter_var($replyTo, FILTER_VALIDATE_EMAIL)) {
+                return $replyTo;
+            }
+
+            // Match the 2nd case
+            $matches = [];
+            preg_match('/<.*>/', $replyTo, $matches);
+
+            if (array_key_exists(0, $matches) && strlen($matches[0]) > 0) {
+                $emailAddress = str_replace(['<', '>'], '', $matches[0]);
+
+                return $emailAddress;
+            }
+        }
+
+        // Alternatively, fall back to the From-header (which is used in mbox archives)
+        $email = $this->parse()->getHeaderValue('From');
 
         return preg_replace('/at/', '@', $email, 1);
     }
 
+    private function getReplyToRaw()
+    {
+        $replyTo = $this->parse()->getHeader('Reply-To');
+
+        if ($replyTo) {
+            $replyToRaw = $replyTo->getRawValue();
+
+            $pieces = explode(",\r\n", $replyToRaw);
+
+            if (array_key_exists(0, $pieces) && strlen($pieces[0]) > 0) {
+                $replyToPiece = $pieces[0];
+
+                return $replyToPiece;
+            }
+        }
+
+        return false;
+    }
+
     public function getFromName()
     {
+        // 2 ways to get the e-mail name: if there's a Reply-To header, use that
+        if ($replyTo = $this->getReplyToRaw()) {
+            if (strpos($replyTo, '<') !== false) {
+                // Split this string: "Peter Todd <pete@petertodd.org>"
+                // And extract the first name
+                $replyToPieces = explode('<', $replyTo);
+
+                return trim($replyToPieces[0]);
+            }
+        }
+
+        // Alternatively, parse the From header
         // The getPersonName() method from the mime-parser does not correctly parse names
         // User our own parser instead
         if (! $this->parse()->getHeader('from')) {
@@ -58,6 +112,11 @@ class MailingListMessage extends Model
             } else {
                 return $name;
             }
+        }
+
+        // See if there's content like "Firstname Lastname via bitcoin-dev <bitcoin-dev@lists.linuxfoundation.org>"
+        if (strpos($rawHeader, ' via bitcoin-')) {
+            return trim(substr($rawHeader, 0, strpos($rawHeader, ' via bitcoin-')));
         }
 
         return 'Anonymous';
