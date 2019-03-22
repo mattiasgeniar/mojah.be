@@ -56,7 +56,14 @@ class MailingListImport extends Command
             // - It's a relatively recent reply to the last message
             // - The subject is similar
 
+            // Fetch the subject
             $subject = trim($mailingListMessage->getSubject());
+
+            // Remove everything before the [bitcoin-dev] prefix, we match the first found '[' char
+            // This usually contains the 'Re: ', 'Fwd: ', ... prefixes
+            if (strpos($subject, '[') !== false) {
+                $subject = substr($subject, strpos($subject, '['));
+            }
 
             // Remove the [bitcoin-dev] prefix from the subject
             $subject = preg_replace('/\[[a-zA-Z0-9-]+\] /', '', $subject);
