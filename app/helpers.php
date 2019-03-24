@@ -9,7 +9,7 @@ function getMessageBody($body)
     }
 
     // Make URLs clickable
-    $body = preg_replace('!(((http|https|ftp)://)[-a-zA-Zа-яА-Я0-9_=+.#?&;/]+)!i', '<a href="$1">$1</a>', $body);
+    $body = preg_replace('!(((http|https|ftp)://)[-a-zA-Zа-яА-Я0-9_=~+.#?&;/]+)!i', '<a href="$1">$1</a>', $body);
     // Stupid fix: the regex above will include a '>' sign in the URL, remove that
     $body = str_replace('&gt;">', '">', $body); // Removes from <a href="https://bitcoincore.org/bin/bitcoin-core-0.17.1/&gt;">
     $body = str_replace('&gt;</a>', '</a>>', $body); // Removes from https://bitcoincore.org/bin/bitcoin-core-0.17.1/&gt;</a>
