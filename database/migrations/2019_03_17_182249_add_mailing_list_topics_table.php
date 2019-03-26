@@ -21,4 +21,5 @@ class AddMailinglistTopicsTable extends Migration
             $table->timestamps();
         });
     }
+
 }

@@ -12,6 +12,7 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
+        "spatie/laravel-feed": "^2.2",
         "zbateson/mail-mime-parser": "^1.1"
     },
     "require-dev": {
