@@ -8,6 +8,8 @@
 
         <!-- Styles -->
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+
+        <!-- RSS -->
         @include('feed::links')
     </head>
 

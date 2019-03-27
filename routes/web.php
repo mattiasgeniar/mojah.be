@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::feeds();
+
 Route::get('mailing-list', 'MailingListController@index');
 Route::get('mailing-list/author/{id}', 'MailingListController@showAuthor');
 Route::get('mailing-list/{slug}', 'MailingListController@showTopics');
 Route::get('mailing-list/{slug}/{topic}', 'MailingListController@showTopic');
-
-Route::feeds();

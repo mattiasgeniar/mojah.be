@@ -16,7 +16,7 @@ return [
             /*
              * The feed will be available on this url.
              */
-            'url' => '',
+            'url' => 'mailing-list/rss',
 
             'title' => 'My feed',
 

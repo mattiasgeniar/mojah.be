@@ -35,8 +35,8 @@ class MailingListTopic extends Model implements Feedable
         return FeedItem::create()
             ->id($this->id)
             ->title($this->topic)
-            ->summary('')
-            ->author('')
+            ->summary($this->messages()->first()->getMessageTeaser())
+            ->author($this->author->display_name)
             ->updated($this->updated_at)
             ->link($this->getTopicUrl());
     }
