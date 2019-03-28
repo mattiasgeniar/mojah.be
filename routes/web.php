@@ -22,5 +22,7 @@ Route::get('mailing-lists/{slug}/{topic}', 'TopicController@show');
 
 Route::get('/api/v1/mailing-lists/{slug}', 'TopicApiController@index');
 Route::get('/api/v1/mailing-lists/{slug}/{topicId}/messages', 'TopicMessagesApiController@index');
+Route::get('/api/v1/authors/{authorId}/topics', 'AuthorTopicsController@index');
+Route::get('/api/v1/authors/{authorId}/messages', 'AuthorMessagesController@index');
 
 Route::feeds();

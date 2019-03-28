@@ -7,8 +7,6 @@
         >
         </topic-list-item>
 
-
-
         <paginate
             :pageCount="totalPages"
             :clickHandler="goToPage"
@@ -69,4 +67,5 @@ export default {
 .pagination > li:focus {
     outline: none;
 }
+
 </style>
