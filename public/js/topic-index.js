@@ -3041,7 +3041,7 @@ var render = function() {
     [
       _c(
         "div",
-        { staticClass: "h-12 px-2 flex items-center justify-between" },
+        { staticClass: "h-16 px-2 flex items-center justify-between" },
         [
           _c("div", { staticClass: "ml-2" }, [
             _c(
@@ -3058,7 +3058,7 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("div", {}, [
+          _c("div", { staticClass: "mr-2" }, [
             _c("div", { staticClass: "text-xs text-grey flex items-center " }, [
               _c(
                 "svg",
