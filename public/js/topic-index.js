@@ -3153,7 +3153,7 @@ var render = function() {
           prevText: "Prev",
           nextText: "Next",
           containerClass: "pagination flex items-center list-reset mt-5",
-          "active-class": "bg-blue text-white px-2 py-1"
+          "active-class": "bg-blue text-white px-2 py-1 rounded"
         }
       })
     ],
