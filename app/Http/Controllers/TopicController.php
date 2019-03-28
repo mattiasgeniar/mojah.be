@@ -22,7 +22,7 @@ class TopicController extends Controller
         $topics = $topicRepository->latestTopics($mailingList);
 
         return view(
-            'topics.index',
+            'topic.index',
             [
                 'mailingList' => $mailingList,
                 'topics' => $topics,
@@ -40,7 +40,7 @@ class TopicController extends Controller
     public function show($slug, $topic)
     {
         return view(
-            'topics.show',
+            'topic.show',
             [
                 'mailingList' => MailingListList::where(['slug' => $slug])->firstOrFail(),
                 'topic' => MailingListTopic::findOrFail($topic),
