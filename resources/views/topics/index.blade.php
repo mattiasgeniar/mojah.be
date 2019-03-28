@@ -14,7 +14,11 @@
         <div class="font-sans">
             <!-- title -->
             <div class="bg-white max-w-xl mx-auto my-8">
-                <h2 class="font-medium text-2lg ml-24 mb-2 mx-auto">{{ $mailingList->name }}</h2>
+                <h2 class="font-medium text-2lg mb-2 mx-auto">{{ $mailingList->name }}</h2>
+            </div>
+
+            <div class="max-w-xl mx-auto">
+                <a class="text-black no-underline" href="/mailing-lists"> Back </a>
             </div>
 
             @foreach ($topics as $topic)

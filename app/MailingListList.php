@@ -13,6 +13,6 @@ class MailingListList extends Model
 
     public function getListUrl()
     {
-        return '/mailing-list/'. $this->slug;
+        return '/mailing-lists/'. $this->slug;
     }
 }
