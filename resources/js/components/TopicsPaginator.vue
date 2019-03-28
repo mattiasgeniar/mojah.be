@@ -65,4 +65,8 @@ export default {
 .pagination > li {
     margin-left: 20px;
 }
+
+.pagination > li:focus {
+    outline: none;
+}
 </style>

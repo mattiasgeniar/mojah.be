@@ -1,13 +1,13 @@
 <template>
-    <div class="flex pt-1 px-4">
-        <div class="px-2 pt-2 inline-flex">
-            <div class="flex-4">
+    <div class="bg-white mx-auto max-w-md shadow-lg rounded-lg overflow-hidden mb-5">
+        <div class="h-12 px-2 flex items-center justify-between">
+            <div class="ml-2">
                 <a :href="topic.topic_url" class="text-black no-underline">
                     <span class="font-medium">{{ topic.topic }}</span>
                 </a>
             </div>
 
-            <div class="flex-1 pl-4">
+            <div class="">
                 <div class="text-xs text-grey flex items-center ">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
