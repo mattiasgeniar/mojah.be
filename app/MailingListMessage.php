@@ -146,7 +146,7 @@ class MailingListMessage extends Model
 
     public function getMessageUrl()
     {
-        return $this->topic->getTopicUrl() .'#'. $this->id;
+        return $this->topic->topic_url .'#'. $this->id;
     }
 
     public function getMessageTeaser($limit = 85)

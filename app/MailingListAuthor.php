@@ -31,6 +31,6 @@ class MailingListAuthor extends Model
 
     public function getAuthorUrl()
     {
-        return '/mailing-list/author/'. $this->id;
+        return '/mailing-lists/author/'. $this->id;
     }
 }

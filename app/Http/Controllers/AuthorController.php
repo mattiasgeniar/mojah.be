@@ -17,7 +17,7 @@ class AuthorController extends Controller
         $author = MailingListAuthor::where(['id' => $id])->firstOrFail();
 
         return view(
-            'mailinglist.showAuthor',
+            'author.show',
             [
                 'author' => $author,
             ]
