@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\MailingListList;
 use App\MailingListMessage;
-use Illuminate\Http\Request;
 
 class TopicMessagesApiController extends Controller
 {
+    /**
+     * Lists the resource.
+     *
+     * @param $slug
+     * @param $topicId
+     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
+     */
     public function index($slug, $topicId)
     {
         $messages = MailingListMessage::query()
