@@ -12,9 +12,15 @@ const tailwindcss = require('tailwindcss');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.version()
+
+mix
+    .js('resources/js/apps/welcome.js', 'public/js')
+    .js('resources/js/apps/mailing-list-index.js', 'public/js')
+
+
     .sass('resources/sass/app.scss', 'public/css')
     .options({
         processCssUrls: false,
-        postCss: [ tailwindcss('./tailwind.config.js') ],
+        postCss: [ tailwindcss('./tailwind.js') ],
     })
