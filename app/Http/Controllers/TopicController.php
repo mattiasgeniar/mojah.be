@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\MailingListList;
 use App\MailingListTopic;
+use App\Repositories\TopicRepository;
 
 class TopicController extends Controller
 {
@@ -11,12 +12,14 @@ class TopicController extends Controller
      * List the topics.
      *
      * @param $slug
+     * @param TopicRepository $topicRepository
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index($slug)
+    public function index($slug, TopicRepository $topicRepository)
     {
         $mailingList = MailingListList::where(['slug' => $slug])->firstOrFail();
-        $topics = $mailingList->topics()->orderBy('created_at', 'desc')->get();
+
+        $topics = $topicRepository->latestTopics($mailingList);
 
         return view(
             'topics.index',

@@ -2,12 +2,12 @@ require('../bootstrap');
 
 window.Vue = require('vue');
 
-import BaseCard from './../components/BaseCard'
+import TopicsPaginator from './../components/TopicsPaginator'
 
 const app = new Vue({
     el: '#app',
 
     components: {
-        BaseCard,
+        TopicsPaginator,
     },
 });

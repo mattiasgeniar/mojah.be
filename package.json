@@ -24,5 +24,8 @@
         "tailwindcss": "^0.7.4",
         "vue": "^2.6.10",
         "vue-template-compiler": "^2.6.10"
+    },
+    "dependencies": {
+        "vuejs-paginate": "^2.1.0"
     }
 }
