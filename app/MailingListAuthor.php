@@ -8,6 +8,8 @@ class MailingListAuthor extends Model
 {
     protected $fillable = ['email', 'display_name'];
 
+    protected $appends = ['gravatar', 'author_url'];
+
     public function messages()
     {
         return $this->hasMany('App\MailingListMessage');
@@ -29,7 +31,7 @@ class MailingListAuthor extends Model
         return strlen($value) > 0 ? $value : 'Anonymous';
     }
 
-    public function getAuthorUrl()
+    public function getAuthorUrlAttribute()
     {
         return '/mailing-lists/author/'. $this->id;
     }

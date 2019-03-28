@@ -10,7 +10,7 @@ class MailingListTopic extends Model implements Feedable
 {
     protected $fillable = ['topic', 'date', 'thread_id', 'mailing_list_list_id', 'mailing_list_author_id', 'created_at'];
 
-    protected $appends = ['topic_url', 'created_at_ago'];
+    protected $appends = ['topic_url', 'created_at_ago', 'messages_api_url'];
 
     public function messages()
     {
@@ -29,7 +29,12 @@ class MailingListTopic extends Model implements Feedable
 
     public function getTopicUrlAttribute()
     {
-        return '/mailing-list/'. $this->list->slug .'/'. $this->id;
+        return "/mailing-lists/{$this->list->slug}/{$this->id}";
+    }
+
+    public function getMessagesApiUrlAttribute()
+    {
+        return "/api/v1/mailing-lists/{$this->list->slug}/{$this->id}/messages";
     }
 
     public function getCreatedAtAgoAttribute()

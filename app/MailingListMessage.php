@@ -9,6 +9,8 @@ class MailingListMessage extends Model
 {
     protected $fillable = ['mailing_list_topic_id', 'mailing_list_author_id', 'hash', 'raw', 'content', 'created_at'];
 
+    protected $appends = ['message_body', 'created_at_ago'];
+
     private $message = null;
 
     public function topic()
@@ -152,5 +154,15 @@ class MailingListMessage extends Model
     public function getMessageTeaser($limit = 85)
     {
         return strlen($this->content) > $limit ? substr($this->content, 0, $limit) . "..." : $this->content;
+    }
+
+    public function getMessageBodyAttribute()
+    {
+        return getMessageBody(e($this->content));
+    }
+
+    public function getCreatedAtAgoAttribute()
+    {
+        return $this->created_at->ago();
     }
 }

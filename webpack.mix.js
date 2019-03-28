@@ -18,6 +18,7 @@ mix
     .js('resources/js/apps/welcome.js', 'public/js')
     .js('resources/js/apps/mailing-list-index.js', 'public/js')
     .js('resources/js/apps/topic-index.js', 'public/js')
+    .js('resources/js/apps/topic-show.js', 'public/js')
 
 
     .sass('resources/sass/app.scss', 'public/css')
