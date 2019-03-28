@@ -26,7 +26,7 @@
 
         <div class="h-32 flex items-center justify-center" v-else>
             <span>
-                No threads were found.
+                No messages were found.
             </span>
         </div>
     </div>
