@@ -8,7 +8,7 @@ class MailingListAuthor extends Model
 {
     protected $fillable = ['email', 'display_name'];
 
-    protected $appends = ['gravatar', 'author_url'];
+    protected $appends = ['gravatar', 'author_url', 'updated_at_ago'];
 
     public function messages()
     {
@@ -24,6 +24,11 @@ class MailingListAuthor extends Model
     {
         $hash = md5(strtolower(trim($this->attributes['email'])));
         return "https://www.gravatar.com/avatar/$hash";
+    }
+
+    public function getUpdatedAtAgoAttribute()
+    {
+        return $this->updated_at->ago();
     }
 
     public function getDisplayNameAttribute($value)
