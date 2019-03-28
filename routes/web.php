@@ -21,3 +21,5 @@ Route::get('mailing-lists/{slug}', 'TopicController@index');
 Route::get('mailing-list/{slug}/{topic}', 'TopicController@show');
 
 Route::get('/api/v1/mailing-lists/{slug}', 'TopicApiController@index');
+
+Route::feeds();
