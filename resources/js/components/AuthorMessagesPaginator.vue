@@ -18,7 +18,7 @@
                 :clickHandler="goToPage"
                 prevText="Prev"
                 nextText="Next"
-                containerClass="pagination flex items-center list-reset mt-5"
+                containerClass="pagination flex items-center list-reset mt-5 mb-4"
                 active-class="bg-blue text-white px-2 py-1 rounded"
             >
             </paginate>
