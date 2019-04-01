@@ -18,7 +18,7 @@ class TopicMessagesApiController extends Controller
         $messages = MailingListMessage::query()
             ->with('author')
             ->where('mailing_list_topic_id', $topicId)
-            ->orderBy('created_at', 'ASC')
+            ->orderBy('id', 'ASC')
             ->get();
 
         return $messages;
