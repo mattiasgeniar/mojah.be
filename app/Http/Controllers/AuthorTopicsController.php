@@ -18,6 +18,6 @@ class AuthorTopicsController extends Controller
             ->with(['author', 'list'])
             ->where('mailing_list_author_id', $authorId)
             ->orderByDesc('created_at')
-            ->paginate(5);
+            ->paginate(15);
     }
 }

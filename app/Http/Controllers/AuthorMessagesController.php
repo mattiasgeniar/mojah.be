@@ -18,6 +18,6 @@ class AuthorMessagesController extends Controller
             ->with(['author'])
             ->where('mailing_list_author_id', $authorId)
             ->orderByDesc('created_at')
-            ->paginate(5);
+            ->paginate(15);
     }
 }
