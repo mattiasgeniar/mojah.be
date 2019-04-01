@@ -15,9 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::feeds();
+Route::get('mailing-lists', 'MailingListController@index');
+Route::get('mailing-lists/author/{id}', 'AuthorController@show');
+Route::get('mailing-lists/{slug}', 'TopicController@index');
+Route::get('mailing-lists/{slug}/{topic}', 'TopicController@show');
 
-Route::get('mailing-list', 'MailingListController@index');
-Route::get('mailing-list/author/{id}', 'MailingListController@showAuthor');
-Route::get('mailing-list/{slug}', 'MailingListController@showTopics');
-Route::get('mailing-list/{slug}/{topic}', 'MailingListController@showTopic');
+Route::get('/api/v1/mailing-lists/{slug}', 'TopicApiController@index');
+Route::get('/api/v1/mailing-lists/{slug}/{topicId}/messages', 'TopicMessagesApiController@index');
+Route::get('/api/v1/authors/{authorId}/topics', 'AuthorTopicsController@index');
+Route::get('/api/v1/authors/{authorId}/messages', 'AuthorMessagesController@index');
+
+Route::feeds();

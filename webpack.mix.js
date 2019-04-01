@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const tailwindcss = require('tailwindcss');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +12,18 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+mix.version()
+
+mix
+    .js('resources/js/apps/welcome.js', 'public/js')
+    .js('resources/js/apps/mailing-list-index.js', 'public/js')
+    .js('resources/js/apps/topic-index.js', 'public/js')
+    .js('resources/js/apps/topic-show.js', 'public/js')
+    .js('resources/js/apps/author-show.js', 'public/js')
+
+
+    .sass('resources/sass/app.scss', 'public/css')
+    .options({
+        processCssUrls: false,
+        postCss: [ tailwindcss('./tailwind.js') ],
+    })

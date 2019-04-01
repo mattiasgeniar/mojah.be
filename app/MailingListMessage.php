@@ -3,11 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use ZBateson\MailMimeParser\MailMimeParser;
 
 class MailingListMessage extends Model
 {
     protected $fillable = ['mailing_list_topic_id', 'mailing_list_author_id', 'hash', 'raw', 'content', 'created_at'];
+
+    protected $appends = ['message_body', 'message_url', 'message_teaser', 'created_at_ago'];
 
     private $message = null;
 
@@ -144,13 +147,23 @@ class MailingListMessage extends Model
         return $this->belongsTo('App\MailingListAuthor', 'mailing_list_author_id');
     }
 
-    public function getMessageUrl()
+    public function getMessageUrlAttribute()
     {
-        return $this->topic->getTopicUrl() .'#'. $this->id;
+        return $this->topic->topic_url .'#'. $this->id;
     }
 
-    public function getMessageTeaser($limit = 85)
+    public function getMessageTeaserAttribute()
     {
-        return strlen($this->content) > $limit ? substr($this->content, 0, $limit) . "..." : $this->content;
+        return Str::limit($this->content, 85);
+    }
+
+    public function getMessageBodyAttribute()
+    {
+        return getMessageBody(e($this->content));
+    }
+
+    public function getCreatedAtAgoAttribute()
+    {
+        return $this->created_at->ago();
     }
 }

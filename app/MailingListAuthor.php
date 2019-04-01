@@ -8,6 +8,8 @@ class MailingListAuthor extends Model
 {
     protected $fillable = ['email', 'display_name'];
 
+    protected $appends = ['gravatar', 'author_url', 'updated_at_ago'];
+
     public function messages()
     {
         return $this->hasMany('App\MailingListMessage');
@@ -24,13 +26,18 @@ class MailingListAuthor extends Model
         return "https://www.gravatar.com/avatar/$hash";
     }
 
+    public function getUpdatedAtAgoAttribute()
+    {
+        return $this->updated_at->ago();
+    }
+
     public function getDisplayNameAttribute($value)
     {
         return strlen($value) > 0 ? $value : 'Anonymous';
     }
 
-    public function getAuthorUrl()
+    public function getAuthorUrlAttribute()
     {
-        return '/mailing-list/author/'. $this->id;
+        return '/mailing-lists/author/'. $this->id;
     }
 }
