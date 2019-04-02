@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white mx-auto max-w-md shadow-lg rounded-lg overflow-hidden mb-5">
+    <div class="bg-white mx-auto max-w-lg shadow-lg rounded-lg overflow-hidden mb-5">
         <div class="h-16 px-2 flex items-center justify-between">
             <div class="ml-2">
                 <a :href="topic.topic_url" class="text-black no-underline">
@@ -33,15 +33,15 @@ export default {
     props: ['topic'],
 
     data: () => ({
-    
+
     }),
 
     mounted() {
-    
+
     },
-    
+
     methods: {
-    
+
     },
 
 }
