@@ -3,7 +3,7 @@
 
         <a :name="message.id"></a>
 
-        <div class="bg-white max-w-xl mx-auto my-8 border border-grey-light rounded">
+        <div class="bg-white max-w-xl mx-auto my-8 border border-grey-light rounded shadow-lg rounded-lg">
             <div class="flex pt-4 px-4">
                 <div class="w-16 mr-2">
                     <img class="p-2 rounded rounded-full" :src="message.author.gravatar">
@@ -30,7 +30,7 @@
                     </header>
 
                     <article
-                        class="py-4 text-grey-darkest break-words flex-wrap leading-normal text-lg"
+                        class="py-4 text-grey-darkest break-words flex-wrap leading-normal font-light text-normal"
                         v-html="message.message_body"
                     >
                     </article>
@@ -48,15 +48,15 @@ export default {
     props: ['message'],
 
     data: () => ({
-    
+
     }),
 
     mounted() {
-    
+
     },
-    
+
     methods: {
-    
+
     },
 
 }
