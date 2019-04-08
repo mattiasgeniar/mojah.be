@@ -59,6 +59,11 @@ class MailingListImport extends Command
             // Fetch the subject
             $subject = trim($mailingListMessage->getSubject());
 
+            // Skip mailing list membership reminders, contains sensitive info
+            if (stristr($subject, 'mailing list memberships reminder') === true) {
+                continue;
+            }
+
             // Remove everything before the [bitcoin-dev] prefix, we match the first found '[' char
             // This usually contains the 'Re: ', 'Fwd: ', ... prefixes
             if (strpos($subject, '[') !== false) {
