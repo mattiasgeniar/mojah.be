@@ -41,8 +41,8 @@ class MailingListImport extends Command
 
         $mailingList = MailingListList::where(['slug' => $listName])->firstOrFail();
 
-        if (! $mailingList) {
-            dd('First add this mailing list to the DB: '. $listName);
+        if (!$mailingList) {
+            dd('First add this mailing list to the DB: ' . $listName);
         }
 
         for ($n = 0; $n < $list->size(); $n++) {
@@ -71,9 +71,9 @@ class MailingListImport extends Command
             $email = $mailingListMessage->getFromEmail();
             $emailName = $mailingListMessage->getFromName();
             $date = Carbon::parse($mailingListMessage->getDate());
-            $body = $mailingListMessage->getBodyText();
+            $body = trim($mailingListMessage->getBodyText());
 
-            $messageHash = md5($date . $email . $body);
+            $messageHash = md5($date . $email . $subject);
 
             if ($email) {
                 $mailingListAuthor = mailingListAuthor::firstOrCreate(
@@ -98,9 +98,9 @@ class MailingListImport extends Command
             $topicDateMin = $date->copy()->subDays(30);
             $topicDateMax = $date->copy()->addDays(30);
             $mailingListTopic = MailingListTopic::where('topic', $subject)
-                                    ->whereBetween('updated_at', [$topicDateMin, $topicDateMax])->first();
+                ->whereBetween('updated_at', [$topicDateMin, $topicDateMax])->first();
 
-            if (! $mailingListTopic) {
+            if (!$mailingListTopic) {
                 $mailingListTopic = new MailingListTopic();
                 $mailingListTopic->mailing_list_list_id = $mailingList->id;
                 $mailingListTopic->topic = $subject;
