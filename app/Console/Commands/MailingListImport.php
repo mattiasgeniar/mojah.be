@@ -60,7 +60,7 @@ class MailingListImport extends Command
             $subject = trim($mailingListMessage->getSubject());
 
             // Skip mailing list membership reminders, contains sensitive info
-            if (stristr($subject, 'mailing list memberships reminder') === true) {
+            if (strpos($subject, 'mailing list memberships reminder') !== false) {
                 continue;
             }
 
