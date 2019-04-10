@@ -55,6 +55,6 @@ class MailingListTopic extends Model implements Feedable
 
     public static function getFeedItems()
     {
-        return static::query()->orderBy('created_at', 'desc')->limit(100)->get();
+        return static::query()->orderBy('created_at', 'desc')->limit(25)->get();
     }
 }
