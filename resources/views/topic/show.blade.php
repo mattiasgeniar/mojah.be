@@ -38,6 +38,14 @@
             <topic-show :topic="{{ json_encode($topic) }}"></topic-show>
         </div>
 
+
+        <div class="bg-white max-w-xl mx-auto my-8 border border-grey-light rounded shadow-lg rounded-lg">
+            <div class="pt-4 pb-4 px-4 text-grey text-center leading-normal">
+                This is an archive from the official Bitcoin Core <a class="leading-normal text-grey hover:no-underline" href="https://lists.linuxfoundation.org/mailman/listinfo">mailing lists</a>. The code is <a class="leading-normal text-grey hover:no-underline" href="https://github.com/mattiasgeniar/CommunityBitcoin">entirely open source</a>.<br />
+                BTC tipjar: <a class="leading-normal text-grey hover:no-underline" href="bitcoin:39xyx1A85hoM7fKyhPCmyLT891KxDXwVX9">39xyx1A85hoM7fKyhPCmyLT891KxDXwVX9<a>.
+            </div>
+        </div>
+
         <div class="w-full h-16"></div>
     </div>
 
