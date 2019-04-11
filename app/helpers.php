@@ -8,6 +8,9 @@ function getMessageBody($body)
         $body = substr($body, 0, strpos($body, $markerNextPart));
     }
 
+    // Remove the bitcoin mailing list footer
+    $body = removeMailingListFooter($body);
+
     // Make URLs clickable
     $body = preg_replace('!(((http|https|ftp)://)[-a-zA-Zа-яА-Я0-9_=~+.#?&;/]+)!i', '<a href="$1">$1</a>', $body);
     // Stupid fix: the regex above will include a '>' sign in the URL, remove that
@@ -111,6 +114,27 @@ function collapseBottomQuotes($body)
     }
 
     $lines[] = '</div>';
+
+    return implode("\n", $lines);
+}
+
+function removeMailingListFooter($body)
+{
+    $lines = explode("\n", $body);
+
+    /* Remove the typical footer appended to the mailing lists */
+    $footerLines[] = '_______________________________________________';
+    $footerLines[] = 'bitcoin-dev mailing list';
+    $footerLines[] = 'bitcoin-dev@lists.linuxfoundation.org';
+    $footerLines[] = 'https://lists.linuxfoundation.org/mailman/listinfo/bitcoin-dev';
+
+    foreach ($lines as $linenr => $line) {
+        foreach ($footerLines as $footer) {
+            if ($line == $footer) {
+                unset($lines[$linenr]);
+            }
+        }
+    }
 
     return implode("\n", $lines);
 }
