@@ -17,6 +17,9 @@ function getMessageBody($body)
     // Encapsulate strings in backtics in <code> tags
     $body = preg_replace("/`(.*?)`/s", '<code class="bg-grey-lighter pl-1 pr-1 leading-tight text-red-dark rounded-sm font-mono text-sm">$1</code>', $body);
 
+    // Collapse the bottom quoted values (ie: users that reply on top of the email)
+    $body = collapseBottomQuotes($body);
+
     // Set the quoted text in italic/grey
     $body = setMarkupQuotedText($body);
 
@@ -40,7 +43,7 @@ function setMarkupQuotedText($body)
 
     foreach ($lines as $line) {
         if (strlen($line) > 0 && substr($line, 0, 4) == '&gt;') {
-            $return .= '<span class="text-grey-dark italic leading-none">'. $line .'</span>';
+            $return .= '<span class="text-grey-dark italic leading-none">' . $line . '</span>';
         } else {
             $return .= $line;
         }
@@ -79,4 +82,35 @@ function collapseMultipleNewLines($body)
     $body = preg_replace("/(\r?\n){2,}/", "\n\n", $body);
 
     return $body;
+}
+
+function collapseBottomQuotes($body)
+{
+    $lines = explode("\n", $body);
+    $linesReverse = array_reverse($lines);
+
+    // How many lines contain these bottom quotes?
+    $countQuotes = 0;
+
+    // What code should we inject?
+    $messageHash = md5($body);
+    $toggleCode = '<a onclick="toggleDiv(\'' . $messageHash . '\')" class="text-grey-dark italic leading-none">&laquo; show quoted text &raquo;</a>' . PHP_EOL . '<div id="' . $messageHash . '" style="display: none">';
+
+    foreach ($linesReverse as $line) {
+        if (strlen($line) != 0 && substr($line, 0, 4) != '&gt;') {
+            break;
+        }
+
+        $countQuotes++;
+    }
+
+    // Do we have bottom quoted text?
+    // Don't show the quote-toggle if we have just a few lines, it isn't worth the noise
+    if ($countQuotes > 2) {
+        array_splice($lines, count($lines) + 1 - $countQuotes, 0, [$toggleCode]);
+    }
+
+    $lines[] = '</div>';
+
+    return implode("\n", $lines);
 }
