@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models;
+
 class AnalyticsController extends Controller
 {
     /**
@@ -18,6 +20,9 @@ class AnalyticsController extends Controller
 
     public function transactionCountPerDay()
     {
+        $node = new \App\Models\Node();
+        dd($node->getNetworkInfo());
+
         $txPerDay = [
             1 => 5,
             2 => 10,
