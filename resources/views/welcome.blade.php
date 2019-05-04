@@ -23,6 +23,12 @@
                 subtitle="Mailing list archives"
                 href="/mailing-lists"
             ></base-card>
+
+            <base-card
+                title="Data analytics"
+                subtitle="Analyzing the bitcoin blockchain"
+                href="/analytics"
+            ></base-card>
         </div>
 
         <script src="{{ mix('/js/welcome.js') }}"></script>

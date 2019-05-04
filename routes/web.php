@@ -25,4 +25,7 @@ Route::get('/api/v1/mailing-lists/{slug}/{topicId}/messages', 'TopicMessagesApiC
 Route::get('/api/v1/authors/{authorId}/topics', 'AuthorTopicsController@index');
 Route::get('/api/v1/authors/{authorId}/messages', 'AuthorMessagesController@index');
 
+Route::get('analytics', 'AnalyticsController@index');
+Route::get('analytics/transactions-per-day', 'AnalyticsController@transactionCountPerDay');
+
 Route::feeds();
