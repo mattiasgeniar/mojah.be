@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white mx-auto max-w-lg shadow-lg rounded-lg overflow-hidden mb-5 flex">
+    <div class="bg-white mx-auto max-w-3xl shadow-lg rounded-lg overflow-hidden mb-5 flex">
         <div class="w-full h-10 flex items-center justify-between">
                 <div class="ml-4">
                     <a :href="message.message_url" class="text-green-darkest no-underline">
@@ -28,15 +28,15 @@ export default {
     props: ['message'],
 
     data: () => ({
-    
+
     }),
 
     mounted() {
-    
+
     },
-    
+
     methods: {
-    
+
     },
 
 }

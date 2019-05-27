@@ -3,7 +3,7 @@
 
         <a :name="message.id"></a>
 
-        <div class="bg-white max-w-xl mx-auto my-8 border border-grey-light rounded shadow-lg rounded-lg">
+        <div class="bg-white max-w-3xl mx-auto my-8 border border-grey-light rounded shadow-lg rounded-lg">
             <div class="flex pt-4 px-4">
                 <div class="w-16 mr-2">
                     <img class="p-2 rounded rounded-full" :src="message.author.gravatar">

@@ -14,7 +14,7 @@
     <body>
         <div id="app" class="font-sans">
             <!-- title -->
-            <div class="bg-white max-w-xl mx-auto my-8">
+            <div class="bg-white max-w-3xl mx-auto my-8">
                 <h2 class="font-medium text-2lg mb-2 mx-auto">Community resources for Bitcoin Core</h2>
             </div>
 

@@ -18,11 +18,11 @@
 <body>
     <div id="app" class="font-sans">
         <!-- title -->
-        <div class="bg-white max-w-xl mx-auto my-8">
+        <div class="bg-white max-w-3xl mx-auto my-8">
             <h2 class="font-medium text-2lg mb-2 mx-auto">Mailing List archives for Bitcoin Core</h2>
         </div>
 
-        <div class="max-w-xl mx-auto">
+        <div class="max-w-3xl mx-auto">
             <a class="text-black no-underline" href="/">&laquo; Back </a> | <a class="text-black no-underline" href="/mailing-list/rss"> RSS feed </a>
         </div>
 

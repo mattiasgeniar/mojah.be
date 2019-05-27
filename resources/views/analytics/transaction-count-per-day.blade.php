@@ -15,14 +15,14 @@
 <body>
     <div id="app" class="font-sans">
         <!-- title -->
-        <div class="bg-white max-w-xl mx-auto my-8">
+        <div class="bg-white max-w-3xl mx-auto my-8">
             <h2 class="font-medium text-2lg ml-24 mb-2 mx-auto">Bitcoin blockchain analysis: transactions per day</h2>
             <a href="/analytics" class="no-underline text-grey">
                 <span class="text-grey">&laquo; Back</span>
             </a>
         </div>
 
-        <div class="bg-white max-w-xl mx-auto my-8">
+        <div class="bg-white max-w-3xl mx-auto my-8">
             Content goes here
         </div>
     </div>

@@ -14,7 +14,7 @@
     <body>
         <div id="app" class="font-sans">
             <!-- title -->
-            <div class="bg-white max-w-xl mx-auto my-8 border border-grey-light">
+            <div class="bg-white max-w-3xl mx-auto my-8 border border-grey-light">
                 <div class="flex pt-4 px-4">
                     <div class="w-16 mr-2">
                         <img class="p-2 rounded rounded-full" src="{{ $author->gravatar }}">
@@ -27,7 +27,7 @@
                 </div>
             </div>
 
-            <div class="bg-white max-w-xl mx-auto mt-8">
+            <div class="bg-white max-w-3xl mx-auto mt-8">
                 <author-topics-paginator
                     :author="{{ json_encode($author) }}"
                 ></author-topics-paginator>
@@ -35,7 +35,7 @@
 
             <div class="w-full h-8"></div>
 
-            <div class="bg-white max-w-xl mx-auto mt-8">
+            <div class="bg-white max-w-3xl mx-auto mt-8">
                 <author-messages-paginator
                     :author="{{ json_encode($author) }}"
                 ></author-messages-paginator>

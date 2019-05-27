@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="bg-white max-w-xl mx-auto mt-8 mb-8">
+        <div class="bg-white max-w-3xl mx-auto mt-8 mb-8">
             <h2>Threads started by this user</h2>
         </div>
 
