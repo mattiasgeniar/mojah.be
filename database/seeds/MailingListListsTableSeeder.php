@@ -36,7 +36,14 @@ class MailingListListsTableSeeder extends Seeder
             ]
         );
 
-        $lists = [ $list1, $list2, $list3 ];
+        $list4 = MailingListList::create(
+            [
+                'name' => 'Lightning Dev',
+                'slug' => 'lightning-dev',
+            ]
+        );
+
+        $lists = [ $list1, $list2, $list3, $list4 ];
 
         // Create 5 authors
         factory(MailingListAuthor::class, 5)->create()->each(function ($author) use ($lists) {
