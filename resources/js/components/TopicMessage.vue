@@ -29,7 +29,7 @@
             </div>
 
             <article
-                class="pt-4 px-4 text-grey-darkest break-words flex-wrap leading-normal font-light text-normal"
+                class="pt-4 px-4 text-grey-darkest break-words flex-wrap leading-relaxed font-light text-normal"
                 v-html="message.message_body"
             >
             </article>
