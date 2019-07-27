@@ -18,7 +18,7 @@ function getMessageBody($body)
     $body = str_replace('&gt;</a>', '</a>>', $body); // Removes from https://bitcoincore.org/bin/bitcoin-core-0.17.1/&gt;</a>
 
     // Encapsulate strings in backtics in <code> tags
-    $body = preg_replace("/`(.*?)`/s", '<code class="bg-grey-lighter pl-1 pr-1 leading-tight text-red-dark rounded-sm font-mono text-sm">$1</code>', $body);
+    $body = preg_replace("/`(.*?)`/s", '<code class="bg-gray-300 p-1 pl-2 pr-2 leading-tight text-red-dark rounded-sm font-mono text-sm">$1</code>', $body);
 
     // Collapse the bottom quoted values (ie: users that reply on top of the email)
     $body = collapseBottomQuotes($body);
