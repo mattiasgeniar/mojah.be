@@ -20,7 +20,7 @@
         </div>
 
         <div class="max-w-3xl mx-auto">
-            <a class="text-black no-underline" href="/mailing-lists"> Back </a>
+            <a class="text-black no-underline" href="/mailing-lists">&laquo; Back </a>
         </div>
 
         <div class="bg-white max-w-3xl mx-auto mt-5">
