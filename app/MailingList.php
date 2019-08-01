@@ -62,7 +62,9 @@ class MailingList extends Model
     {
         // checking if we have bytes locations for this message
         if (!is_array($this->index[$message])) {
-            dd('Message size does not exist');
+            dump('Message size does not exist');
+
+            return false;
         }
 
         // getting bytes locations
@@ -70,16 +72,22 @@ class MailingList extends Model
         $bytesEnd   = $this->index[$message][1];
 
         if (!is_resource($this->resource)) {
-            dd('Mbox resource is not valid. Maybe you need to re-open it?');
+            dump('Mbox resource is not valid. Maybe you need to re-open it?');
+
+            return false;
         }
 
         // seek to start of message
         if (fseek($this->resource, $bytesStart) == -1) {
-            dd('Cannot read message bytes');
+            dump('Cannot read message bytes');
+
+            return false;
         }
 
         if ($bytesEnd - $bytesStart <= 0) {
-            dd('Message byte length is negative');
+            dump('Message byte length is negative');
+
+            return false;
         }
 
         // reading and returning message

@@ -48,6 +48,10 @@ class MailingListImport extends Command
         for ($n = 0; $n < $list->size(); $n++) {
             $message = $list->get($n);
 
+            if (! $message) {
+                continue;
+            }
+
             $mailingListMessage = new MailingListMessage();
             $mailingListMessage->setRawMessage($message);
 
